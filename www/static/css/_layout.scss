@@ -1,0 +1,83 @@
+$mobile-h-padding: 15px;
+$tablet-h-padding: 32px;
+$content-max-width: 645px;
+$content-max-width-viewport: $content-max-width + $tablet-h-padding * 2;
+$side-bar-width: 215px;
+$side-bar-margin: 25px;
+$sidebar-breakpoint: $content-max-width-viewport + $side-bar-margin + $side-bar-width + 26px;
+
+html {
+  font-size: 14px;
+  font-family: sans-serif;
+  line-height: 1.5;
+  background: #fff;
+  color: #333;
+
+  @media screen and (min-width: 415px) {
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.6;
+  }
+}
+
+body {
+  margin: 0;
+}
+
+// main layout padding with floating sidebar
+  .width-padding {
+    padding-left: $mobile-h-padding;
+    padding-right: $mobile-h-padding;
+    margin-left: 0;
+    margin-right: 0;
+    max-width: $content-max-width;
+
+    @media screen and (min-width: 415px) {
+      padding-left: $tablet-h-padding;
+      padding-right: $tablet-h-padding;
+    }
+    @media screen and (min-width: $sidebar-breakpoint) {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    &.no-shift {
+      max-width: none;
+    }
+  }
+
+  @media screen and (min-width: $sidebar-breakpoint) {
+    .width-padding {
+      position: relative;
+      left: -($side-bar-width/2 + $side-bar-margin);
+
+      &.no-shift {
+        left: 0;
+      }
+    }
+  }
+
+  .content-floating-side-bar {
+    position: relative;
+    overflow: hidden;
+
+    .side-bar {
+      display: none;
+    }
+
+    .full-width {
+      position: relative;
+      z-index: 1;
+    }
+
+    @media screen and (min-width: $sidebar-breakpoint) {
+      .side-bar {
+        display: block;
+        width: $side-bar-width;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        margin-left: $side-bar-width + $side-bar-margin;
+      }
+    }
+  }

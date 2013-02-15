@@ -11,8 +11,8 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
     meta: {
       jsfiles: [
-        'www/static/js/1.js',
-        'www/static/js/2.js'
+        'www/static/js/jquery-1.9.1.js',
+        'www/static/js/hugs.js'
       ]
     },
     concat: {

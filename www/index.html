@@ -1,13 +1,137 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<link rel="stylesheet" href="/static/css/base.css">
-	<title>Test</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0">
+  <script>document.documentElement.className += ' js';</script>
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Abel">
+  <link rel="stylesheet" href="/static/css/all.css">
+  <title>The touchy-feely-friendly shop!</title>
 </head>
 <body>
-	<h1>It works!</h1>
-	<script src="/static/js/base.js"></script>
+  <header class="site-header">
+    <div class="title"><a href="/">The touchy-feely-friendly shop!</a></div>
+  </header>
+  <div class="content-floating-side-bar">
+    <div class="article-content">
+      <h1>Welcome!</h1>
+      <p>
+        Are you a hot-shot business-person? Do you feel you don't have time
+        for relationships with friends and family? Well, don't worry, we've
+        got you covered! Choose from your products below and people won't
+        even notice you're completely neglecting them!
+      </p>
+      <p>
+        What's more, all of our products are completely <strong>free</strong>!
+        Yes, <strong>free</strong>! No, free, free with an "F", not "three".
+        Look, this is getting confusing, just select some stuff below so
+        we can get all touchy-feely-friendly with people on your behest.
+      </p>
+    </div>
+    <ul class="row-list">
+      <li class="width-padding">
+        <section class="product">
+          <div class="details">
+            <h1 class="title">Simple hug</h1>
+            <form action="/add-to-basket/" class="buy">
+              <button type="submit" name="post" class="btn">Add to basket</button>
+            </form>
+            <p class="description">
+              We'll send someone to hug a person of your choosing. It will
+              be the standard arms-around, 3 second embrace, with a comforting
+              hand-on-shoulders and smile afterwards.
+            </p>
+          </div>
+          <div class="photo">
+            <img src="/static/imgs/hug.jpg" alt="Friendly hug" class="product-photo" title="Photo from http://www.flickr.com/photos/joeshlabotnik/5791411376/">
+          </div>
+        </section>
+      </li>
+      <li class="width-padding">
+        <section class="product">
+          <div class="details">
+            <h1 class="title">Virtual hug</h1>
+            <form action="/add-to-basket/" class="buy">
+              <button type="submit" name="post" class="btn">Add to basket</button>
+            </form>
+            <p class="description">
+              Perfect for those afraid of physical contact! We'll slowly approach
+              the recipient, maintaining eye-contact, and wrap our arms around
+              them without actually touching their body. We'll whisper "This is
+              a non-touchy hug" in their ear so they know what's going on.
+            </p>
+          </div>
+          <div class="photo">
+            <img src="/static/imgs/hazmat.jpg" alt="Hazmat suit" class="product-photo" title="Photo from http://www.flickr.com/photos/presidioofmonterey/4098649879/">
+          </div>
+        </section>
+      </li>
+      <li class="width-padding">
+        <section class="product">
+          <div class="details">
+            <h1 class="title">"Proud of you, son"</h1>
+            <form action="/add-to-basket/" class="buy">
+              <button type="submit" name="post" class="btn">Add to basket</button>
+            </form>
+            <p class="description">
+              We'll get on our knees to be head-height with the recipient, put
+              one hand on their shoulder and say "I just want you to know, 
+              I'm proud of you, son". This is intended for boys, but it's also
+              great way to confuse a daughter or friend!
+            </p>
+          </div>
+          <div class="photo">
+            <img src="/static/imgs/dad.jpg" alt="Father-son hug" class="product-photo" title="Photo from http://www.flickr.com/photos/basykes/9266382/">
+          </div>
+        </section>
+      </li>
+      <li class="width-padding">
+        <section class="product">
+          <div class="details">
+            <h1 class="title">Double finger-pistol salute</h1>
+            <form action="/add-to-basket/" class="buy">
+              <button type="submit" name="post" class="btn">Add to basket</button>
+            </form>
+            <p class="description">
+              We'll track down the recipient and shout "Heyyyyy champ! Pow pow pow!"
+              while engaging in some fancy gun-play using only our hands.
+            </p>
+          </div>
+          <div class="photo">
+            <img src="/static/imgs/guns.jpg" alt="Double-guns" class="product-photo" title="Photo from http://www.flickr.com/photos/ashengrove/833611451/">
+          </div>
+        </section>
+      </li>
+    </ul>
+    <!--<section class="grey-boxed full-width" id="comment-form">
+      <div class="width-padding">
+        <h1 class="h2">Say a thing...</h1>
+        <form action="basket/" class="basic-form">
+          <div class="field">
+            <label for="id_name">Hello</label>
+            <input id="id_name" type="text" class="text" name="name">
+          </div>
+          <div class="submit">
+            <button type="submit" name="post" class="btn">Post Comment</button>
+          </div>
+        </form>
+      </div>
+    </section>-->
+    <div class="side-bar">
+      <div class="who-section full me">
+        <figure>
+          <h1 class="no-shift"><img src="/static/imgs/group-hug.jpg" alt="Group Hug"></h1>
+        </figure>
+      </div>
+      <div class="who-section">
+        <h2>Basket</h2>
+        <ul class="row-list no-shift">
+          <li>One</li>
+          <li>Two</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <script src="/static/js/all.js"></script>
 </body>
 </html>

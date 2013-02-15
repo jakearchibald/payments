@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script>document.documentElement.className += ' js';</script>
+  <link rel="stylesheet" href="/static/css/all.css">
+  <title>The Hug Store</title>
+</head>
+<body>
+  <h1>Basket</h1>
+  <ul>
+    <li>
+      1 free hug
+      <form action="#">
+        <button type="submit">Remove</button>
+      </form>
+    </li>
+  </ul>
+  <a href="/checkout/" class="hugs-checkout">Checkout</a>
+  <script src="/static/js/all.js"></script>
+  <script>
+    hugs.enhanceCheckout();
+  </script>
+</body>
+</html>

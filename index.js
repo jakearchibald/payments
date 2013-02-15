@@ -7,6 +7,10 @@ app.get('/', function(req, res){
   res.sendfile('www/index.html');
 });
 
+app.get('/basket/', function(req, res){
+  res.sendfile('www/basket.html');
+});
+
 app.listen(3000);
 
 exports = app;
