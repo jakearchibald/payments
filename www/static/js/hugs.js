@@ -104,10 +104,10 @@ hugs.enhanceListing = function() {
       });
 
       setTimeout(function() {
-        $row.remove();
-        if ($row.parent().children().length === 0) {
+        if ($row.parent().children().length === 1) {
           hideCheckoutButton();
         }
+        $row.remove();
       }, 500);
 
     }
