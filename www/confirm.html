@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0">
+  <script>document.documentElement.className += ' js';</script>
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Abel">
+  <link rel="stylesheet" href="/static/css/all.css">
+  <title>Confirm - The touchy-feely-friendly shop!</title>
+</head>
+<body>
+  <header class="site-header">
+    <div class="title"><a href="/">The touchy-feely-friendly shop!</a></div>
+  </header>
+  <div class="content-floating-side-bar">
+    <div class="article-content">
+      <h1>Almost done!</h1>
+      <p>Check the below is correct and we'll deal with your order right away!</p>
+
+      <h2>Items</h2>
+      <ul class="row-list no-shift basket-list">
+      </ul>
+
+      <h2>Billing</h2>
+      <div class="billing-info width-padding">
+        <dl class="initial-billing">
+          <dt>Name</dt>
+          <dd class="from-form cc-name"></dd>
+          <dt>Card Number</dt>
+          <dd class="from-form cc-number"></dd>
+          <dt>Card Expiry</dt>
+          <dd>
+            <span class="from-form cc-exp-month"></span>/<span class="from-form cc-exp-year"></span>
+          </dd>
+          <dt>CSC</dt>
+          <dd class="from-form cc-csc"></dd>
+        </dl>
+        <dl>
+          <dt>Address</dt>
+          <dd>
+            <div class="from-form billing-street-address"></div>
+            <div class="from-form billing-address-line1"></div>
+            <div class="from-form billing-address-line2"></div>
+            <div class="from-form billing-locality"></div>
+            <div class="from-form billing-region"></div>
+            <div class="from-form billing-country"></div>
+            <div class="from-form billing-postal-code"></div>
+          </dd>
+        </dl>
+      </div>
+
+      <h2>Delivery</h2>
+      <div class="delivery-info width-padding">
+        <div class="from-form delivery-street-address"></div>
+        <div class="from-form delivery-address-line1"></div>
+        <div class="from-form delivery-address-line2"></div>
+        <div class="from-form delivery-locality"></div>
+        <div class="from-form delivery-region"></div>
+        <div class="from-form delivery-country"></div>
+        <div class="from-form delivery-postal-code"></div>
+      </div>
+      
+      <form action="place-order.html" class="basic-form width-padding place-order-form">
+        <div class="submit"><button class="btn">Place Order</button></div>
+      </form>
+    </div>
+
+    <div class="side-bar">
+      <div class="who-section full me">
+        <figure>
+          <h1 class="no-shift"><img src="/static/imgs/group-hug.jpg" alt="Group Hug"></h1>
+        </figure>
+      </div>
+    </div>
+  </div>
+  <script src="/static/js/all.js"></script>
+  <script>
+    hugs.enhanceConfirmPage();
+  </script>
+</body>
+</html>

@@ -2,21 +2,127 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0">
   <script>document.documentElement.className += ' js';</script>
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Abel">
   <link rel="stylesheet" href="/static/css/all.css">
-  <title>The Hug Store</title>
+  <title>Checkout - The touchy-feely-friendly shop!</title>
 </head>
 <body>
-  <h1>Checkout</h1>
-  <form action="/purchase-complete/">
-    
-  </form>
+  <header class="site-header">
+    <div class="title"><a href="/">The touchy-feely-friendly shop!</a></div>
+  </header>
+  <div class="content-floating-side-bar">
+    <div class="article-content">
+      <h1>Checkout</h1>
+      <p>Confirm the items below and enter your payment/delivery details.</p>
+      <p>No items!</p>
+      <ul class="row-list no-shift basket-list">
+      </ul>
+    </div>
+    <section class="grey-boxed full-width">
+      <div class="width-padding">
+        <form action="confirm.html" class="basic-form checkout-form" method="post">
+          <h1 class="h2">Billing</h1>
+          <div class="field">
+            <label for="id_name">Name (as it appears on the card)</label>
+            <input id="id_name" type="text" class="text" autocomplete="cc-name" name="cc-name" required>
+          </div>
+          <div class="field-row">
+            <div class="field field-major">
+              <label for="id_cc-number">Card Number</label>
+              <input id="id_cc-number" type="text" class="text" autocomplete="cc-number" name="cc-number" required>
+            </div>
+            <div class="field">
+              <label for="id_cc-exp-month">Card Expiry</label>
+              <input id="id_cc-exp-month" type="number" class="text text-small" autocomplete="cc-exp-month" name="cc-exp-month" placeholder="MM" required>
+              <input id="id_cc-exp-year" type="number" class="text text-small" autocomplete="cc-exp-year" name="cc-exp-year" placeholder="YY" required>
+            </div>
+            <div class="field">
+              <label for="id_cc-csc">CSC</label>
+              <input id="id_cc-csc" type="number" class="text text-small" autocomplete="cc-csc" name="cc-csc" required>
+            </div>
+          </div>
+          <h1 class="h2">Billing Address</h1>
+          <div class="field">
+            <label for="id_street-address">House name/number</label>
+            <input id="id_street-address" type="text" class="text" autocomplete="billing street-address" name="billing-street-address" required>
+          </div>
+          <div class="field">
+            <label for="id_address-line1">Address</label>
+            <input id="id_address-line1" type="text" class="text" autocomplete="billing address-line1" name="billing-address-line1" required>
+            <input id="id_address-line2" type="text" class="text" autocomplete="billing address-line2" name="billing-address-line2">
+          </div>
+          <div class="field-row">
+            <div class="field field-major">
+              <label for="id_locality">City</label>
+              <input id="id_locality" type="text" class="text" autocomplete="billing locality" name="billing-locality" required>
+            </div>
+            <div class="field field-major">
+              <label for="id_region">Region <span class="minor">(optional)</span></label>
+              <input id="id_region" type="text" class="text" autocomplete="billing region" name="billing-region">
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field field-major">
+              <label for="id_country">Country</label>
+              <input id="id_country" type="text" class="text" autocomplete="billing country" name="billing-country" required>
+            </div>
+            <div class="field field-major">
+              <label for="id_postal-code">Postal/zip code</label>
+              <input id="id_postal-code" type="text" class="text" autocomplete="billing postal-code" name="billing-postal-code" required>
+            </div>
+          </div>
+          <h1 class="h2">Delivery Location</h1>
+          <div class="field">
+            <label>
+              <input type="checkbox" checked class="deliver-to-billing" name="deliver-to-billing" value="1">
+              Deliver to billing address
+            </label>
+          </div>
+          <div class="delivery-details">
+            <div class="field">
+              <label for="id_street-address">House name/number</label>
+              <input id="id_street-address" type="text" class="text" autocomplete="billing street-address" name="delivery-street-address">
+            </div>
+            <div class="field">
+              <label for="id_address-line1">Address</label>
+              <input id="id_address-line1" type="text" class="text" autocomplete="billing address-line1" name="delivery-address-line1">
+              <input id="id_address-line2" type="text" class="text" autocomplete="billing address-line2" name="delivery-address-line2">
+            </div>
+            <div class="field-row">
+              <div class="field field-major">
+                <label for="id_locality">City</label>
+                <input id="id_locality" type="text" class="text" autocomplete="billing locality" name="delivery-locality">
+              </div>
+              <div class="field field-major">
+                <label for="id_region">Region <span class="minor">(optional)</span></label>
+                <input id="id_region" type="text" class="text" autocomplete="billing region" name="delivery-region">
+              </div>
+            </div>
+            <div class="field-row">
+              <div class="field field-major">
+                <label for="id_country">Country</label>
+                <input id="id_country" type="text" class="text" autocomplete="billing country" name="delivery-country">
+              </div>
+              <div class="field field-major">
+                <label for="id_postal-code">Postal/zip code</label>
+                <input id="id_postal-code" type="text" class="text" autocomplete="billing postal-code" name="delivery-postal-code">
+              </div>
+            </div>
+          </div>
+          
+          <div class="submit">
+            <button type="submit" name="post" class="btn">Review order</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </div>
   <script src="/static/js/all.js"></script>
+  <script>
+    hugs.enhanceCheckoutForm();
+    hugs.enhanceListing(true);
+  </script>
 </body>
 </html>
-
-
-name, tel, email
-[shipping] street-address, address-line1, address-line2, locality, region, country, postal-code 
-[billing] street-address, address-line1, address-line2, locality, region, country, postal-code
-cc-name, cc-number, cc-exp, cc-csc, cc-type

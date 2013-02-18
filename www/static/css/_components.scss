@@ -280,12 +280,16 @@ $deep-blue: #1C4751;
       font-family: sans-serif;
       font-size: 1rem;
       padding: 6px 8px;
-      margin: 0;
+      margin: 0 0 2px;
 
       &:focus {
         outline: none;
         border-color: #999;
       }
+    }
+
+    & .text-small {
+      width: 5em;
     }
 
     & textarea {
@@ -307,6 +311,22 @@ $deep-blue: #1C4751;
       color: white;
       padding: 0.1em 0.3em;
       font-size: 0.9rem;
+    }
+
+    & .field-row {
+      display: -webkit-flex;
+      -webkit-flex-direction: row;
+
+      & > .field-major {
+        -webkit-flex: 1;
+      }
+
+      & > .field {
+        margin-left: 5px;
+        &:first-child {
+          margin-left: 0;
+        }
+      }
     }
   }
 
@@ -481,7 +501,7 @@ $deep-blue: #1C4751;
       margin-right: 6px;
     }
 
-    & li {
+    & > li {
       margin-top: 0;
       margin-bottom: 0;
       padding-top: 5px;
@@ -497,7 +517,7 @@ $deep-blue: #1C4751;
         background: #F8F8F8;
       }
     }
-    .side-bar & > li:nth-of-type(odd) {
+    .side-bar & > li:nth-child(odd) {
       background: #eee;
     }
   }
@@ -541,7 +561,7 @@ $deep-blue: #1C4751;
 
 // Basket
   .basket-list {
-    & li {
+    & > li {
       position: relative;
     }
 
@@ -553,4 +573,22 @@ $deep-blue: #1C4751;
       font-size: 9px;
       line-height: 1;
     }
+  }
+  .article-content .basket-list {
+    margin-bottom: 15px;
+
+    & .del {
+      right: auto;
+      left: 9px;
+      top: 8px;
+    }
+  }
+
+// billing
+  .billing-info {
+    overflow: hidden;
+  }
+  .initial-billing {
+    float: left;
+    margin-right: 80px;
   }
