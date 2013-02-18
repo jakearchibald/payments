@@ -34,3 +34,26 @@
     box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
   }
 }
+
+.btn2 {
+  color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #da4f49;
+  @include linear-gradient(to bottom, #ee5f5b, #bd362f);
+  background-repeat: repeat-x;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+
+  &:hover {
+    color: #ffffff;
+    background-color: #bd362f;
+  }
+
+  &:focus {
+    color: #ffffff;
+    background-color: #bd362f;
+  }
+
+  &:active {
+    background-color: #942a25;
+  }
+}

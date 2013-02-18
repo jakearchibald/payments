@@ -16,7 +16,7 @@ hugs.enhanceListing = function() {
       }
     }
 
-    $row = $('<li><form action="/remove-from-basket/" class="remove"><span class="text"></span><button class="btn" type="submit">X</button></form></li>').data({
+    $row = $('<li><form action="/remove-from-basket/" class="remove"><span class="text"></span><button class="btn btn2 del" type="submit">X</button></form></li>').data({
       product: product,
       count: 0
     }).appendTo($basketList);
@@ -25,6 +25,7 @@ hugs.enhanceListing = function() {
   }
 
   function showCheckoutButton() {
+    $basketList.prev('p').hide();
     if (document.createElement('form').requestAutocomplete) {
       // TODO: download form
     }
@@ -34,8 +35,13 @@ hugs.enhanceListing = function() {
     showingCheckoutButton = true;
   }
 
+  function hideCheckoutButton() {
+    $basketList.prev('p').show();
+    $checkoutBtn.detach();
+    showingCheckoutButton = false;
+  }
+
   $('.product-list').on('submit', '.buy', function(event) {
-    $basketList.prev('p').hide();
     var product = $(this).closest('.details').find('.title').text();
     var $row = getRowFor(product);
     $row.data('count', $row.data('count') + 1);
@@ -49,7 +55,9 @@ hugs.enhanceListing = function() {
       transition: '',
       transform: 'scale(1.5)'
     });
-    $row[0].offsetWidth;
+
+    $row[0].offsetWidth; // hack reflow
+    
     $row.css({
       transition: 'all 0.2s ease-out',
       transform: ''
@@ -58,7 +66,52 @@ hugs.enhanceListing = function() {
     event.preventDefault();
   });
 
-  $basketList.on('submit', '.remove', function() {
-    
+  $basketList.on('submit', '.remove', function(event) {
+    var $row = $(this).closest('li');
+    var count = $row.data('count') - 1;
+
+    if (count) {
+      $row.data('count', $row.data('count') - 1);
+      $row.find('.text').text( $row.data('count') + ' ' + $row.data('product') );
+
+      $row.css({
+        transition: '',
+        transform: 'scale(0.8)'
+      });
+
+      $row[0].offsetWidth; // hack reflow
+      
+      $row.css({
+        transition: 'all 0.2s ease-out',
+        transform: ''
+      });
+    }
+    else {
+      $row.addClass('').css({
+        transition: '',
+        position: 'absolute',
+        transformOrigin: '0 0',
+        width: $row.css('width'),
+        zIndex: 1
+      });
+
+      $row[0].offsetWidth;
+
+      $row.css({
+        transition: 'all 0.3s ease-in',
+        transform: 'translate(0, 10px) rotate(60deg)',
+        opacity: 0
+      });
+
+      setTimeout(function() {
+        $row.remove();
+        if ($row.parent().children().length === 0) {
+          hideCheckoutButton();
+        }
+      }, 500);
+
+    }
+
+    event.preventDefault();
   });
 };

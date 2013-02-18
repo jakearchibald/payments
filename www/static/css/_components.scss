@@ -481,7 +481,7 @@ $deep-blue: #1C4751;
       margin-right: 6px;
     }
 
-    & > li {
+    & li {
       margin-top: 0;
       margin-bottom: 0;
       padding-top: 5px;
@@ -497,15 +497,8 @@ $deep-blue: #1C4751;
         background: #F8F8F8;
       }
     }
-    .side-bar & > li:nth-child(odd) {
+    .side-bar & > li:nth-of-type(odd) {
       background: #eee;
-    }
-  }
-
-// checkout button
-  .hugs-checkout {
-    .js & {
-      display: none;
     }
   }
 
@@ -543,5 +536,21 @@ $deep-blue: #1C4751;
       height: 100px;
       background: #ccc;
       margin-top: 3px;
+    }
+  }
+
+// Basket
+  .basket-list {
+    & li {
+      position: relative;
+    }
+
+    & .del {
+      position: absolute;
+      top: 6px;
+      right: 6px;
+      padding: 3px 4px;
+      font-size: 9px;
+      line-height: 1;
     }
   }
