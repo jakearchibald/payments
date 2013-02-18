@@ -44,14 +44,15 @@ $deep-blue: #1C4751;
 
       & .title {
         background: url('imgs/site-title-large.png') no-repeat;
-        background-size: 984px;
-        height: 67px;
-        top: 32px;
+        background-size: 470px;
+        height: 48px;
+        top: 40px;
         max-width: 973px;
         margin: 0 auto;
+        left: 28px;
 
         & a {
-          width: 386px;
+          width: 460px;
         }
       }
     }
