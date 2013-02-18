@@ -45,6 +45,7 @@ hugs.storage = (function() {
 
 hugs.enhanceListing = function(checkoutPage) {
   var $basketList = $('.basket-list');
+  var $checkoutForm;
 
   if (!checkoutPage) {
     var $checkoutBtn = $('<form action="checkout.html"><p><button class="btn" type="submit">Checkout</button></p></form>');
@@ -74,8 +75,30 @@ hugs.enhanceListing = function(checkoutPage) {
   function showCheckoutButton() {
     $basketList.prev('p').hide();
     if (!checkoutPage) {
-      if (document.createElement('form').requestAutocomplete) {
-        // TODO: download form
+      if (document.createElement('form').requestAutocomplete && !$checkoutForm) {
+        $.ajax('checkout.html').done(function(response) {
+          $checkoutForm = $(response).find('.checkout-form').appendTo('body').addClass('hidden');
+
+          // show delivery part of form
+          $checkoutForm.find('.deliver-to-billing')[0].checked = false;
+          $checkoutForm.find('.delivery-details').css('display', 'block');
+
+          $checkoutForm.on('autocomplete', function(event) {
+            hugs.storage.setCheckoutDetails($checkoutForm.serializeObj());
+            window.location.href = 'confirm.html';
+          }).on('autocompleteerror', function(event) {
+            console.log(event);
+          }).on('invalid', function(event) {
+            hugs.storage.setCheckoutDetails($checkoutForm.serializeObj());
+            window.location.href = 'checkout.html';
+            event.preventDefault();
+          });
+          $checkoutBtn.insertAfter($basketList);
+          $checkoutBtn[0].addEventListener('click', function(event) {
+            $checkoutForm[0].requestAutocomplete();
+            event.preventDefault();
+          });
+        });
       }
       else {
         $checkoutBtn.insertAfter($basketList);

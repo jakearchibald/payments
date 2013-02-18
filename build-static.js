@@ -1,6 +1,17 @@
 // All the files needed for the static version
 var manifest = [
-  // urls go here
+  '/',
+  '/checkout.html',
+  '/confirm.html',
+  '/place-order.html',
+  '/static/imgs/dad.jpg',
+  '/static/imgs/group-hug.jpg',
+  '/static/imgs/guns.jpg',
+  '/static/imgs/hazmat.jpg',
+  '/static/imgs/hug.jpg',
+  '/static/css/all.css',
+  '/static/css/imgs/site-title-large.png',
+  '/static/js/all.js'
 ];
 var server = 'http://localhost:3000';
 

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, minimum-scale=1.0">
   <script>document.documentElement.className += ' js';</script>
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Abel">
-  <link rel="stylesheet" href="/static/css/all.css">
+  <link rel="stylesheet" href="static/css/all.css">
   <title>Checkout - The touchy-feely-friendly shop!</title>
 </head>
 <body>
@@ -51,10 +51,6 @@
           </div>
           <h1 class="h2">Billing Address</h1>
           <div class="field">
-            <label for="id_street-address">House name/number</label>
-            <input id="id_street-address" type="text" class="text" autocomplete="billing street-address" name="billing-street-address" required>
-          </div>
-          <div class="field">
             <label for="id_address-line1">Address</label>
             <input id="id_address-line1" type="text" class="text" autocomplete="billing address-line1" name="billing-address-line1" required>
             <input id="id_address-line2" type="text" class="text" autocomplete="billing address-line2" name="billing-address-line2">
@@ -87,10 +83,6 @@
             </label>
           </div>
           <div class="delivery-details">
-            <div class="field">
-              <label for="id_street-address">House name/number</label>
-              <input id="id_street-address" type="text" class="text" autocomplete="billing street-address" name="delivery-street-address">
-            </div>
             <div class="field">
               <label for="id_address-line1">Address</label>
               <input id="id_address-line1" type="text" class="text" autocomplete="billing address-line1" name="delivery-address-line1">
@@ -125,7 +117,7 @@
       </div>
     </section>
   </div>
-  <script src="/static/js/all.js"></script>
+  <script src="static/js/all.js"></script>
   <script>
     hugs.enhanceCheckoutForm();
     hugs.enhanceListing(true);
