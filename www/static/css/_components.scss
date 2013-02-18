@@ -402,7 +402,6 @@ $deep-blue: #1C4751;
 
     & .who-section {
       padding: 0 15px;
-      overflow: hidden;
 
       &.me img {
         border: 1px solid #fff;
@@ -497,6 +496,9 @@ $deep-blue: #1C4751;
       &:nth-child(even) {
         background: #F8F8F8;
       }
+    }
+    .side-bar & > li:nth-child(odd) {
+      background: #eee;
     }
   }
 
