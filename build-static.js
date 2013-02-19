@@ -11,7 +11,8 @@ var manifest = [
   '/static/imgs/hug.jpg',
   '/static/css/all.css',
   '/static/css/imgs/site-title-large.png',
-  '/static/js/all.js'
+  '/static/js/jquery-1.9.1.js',
+  '/static/js/hugs.js'
 ];
 var server = 'http://localhost:3000';
 
