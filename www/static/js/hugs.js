@@ -109,7 +109,9 @@ hugs.enhanceListing = function(checkoutPage) {
 
   function hideCheckoutButton() {
     $basketList.prev('p').show();
-    $checkoutBtn.detach();
+    if (!checkoutPage) {
+      $checkoutBtn.detach();
+    }
     showingCheckoutButton = false;
   }
 
