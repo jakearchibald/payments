@@ -34,19 +34,21 @@
             <label for="id_name">Name (as it appears on the card)</label>
             <input id="id_name" type="text" class="text" autocomplete="cc-name" name="cc-name" required>
           </div>
-          <div class="field-row">
+          <div class="field-row row-desktop-only">
             <div class="field field-major">
               <label for="id_cc-number">Card Number</label>
               <input id="id_cc-number" type="text" class="text" autocomplete="cc-number" name="cc-number" required>
             </div>
-            <div class="field">
-              <label for="id_cc-exp-month">Card Expiry</label>
-              <input id="id_cc-exp-month" type="number" class="text text-small" autocomplete="cc-exp-month" name="cc-exp-month" placeholder="MM" required>
-              <input id="id_cc-exp-year" type="number" class="text text-small" autocomplete="cc-exp-year" name="cc-exp-year" placeholder="YY" required>
-            </div>
-            <div class="field">
-              <label for="id_cc-csc">CSC</label>
-              <input id="id_cc-csc" type="number" class="text text-small" autocomplete="cc-csc" name="cc-csc" required>
+            <div class="field-row">
+              <div class="field">
+                <label for="id_cc-exp-month">Card Expiry</label>
+                <input id="id_cc-exp-month" type="number" class="text text-small" autocomplete="cc-exp-month" name="cc-exp-month" placeholder="MM" required>
+                <input id="id_cc-exp-year" type="number" class="text text-small" autocomplete="cc-exp-year" name="cc-exp-year" placeholder="YY" required>
+              </div>
+              <div class="field">
+                <label for="id_cc-csc">CSC</label>
+                <input id="id_cc-csc" type="number" class="text text-small" autocomplete="cc-csc" name="cc-csc" required>
+              </div>
             </div>
           </div>
           <h1 class="h2">Billing Address</h1>
