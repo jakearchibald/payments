@@ -61,12 +61,12 @@ body {
     position: relative;
     overflow: hidden;
 
-    .full-width {
+    & .full-width {
       position: relative;
       z-index: 1;
     }
 
-    .side-bar {
+    & .side-bar {
       position: fixed;
       bottom: 0;
       left: 0;
@@ -80,7 +80,7 @@ body {
     }
 
     @media screen and (min-width: $sidebar-breakpoint) {
-      .side-bar {
+      & .side-bar {
         display: block;
         width: $side-bar-width;
         position: absolute;
@@ -91,7 +91,7 @@ body {
         @include transform(none);
         @include transition(none);
       }
-      .basket-pad {
+      & .basket-pad {
         display: none;
       }
     }
