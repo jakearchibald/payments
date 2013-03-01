@@ -45,10 +45,12 @@ hugs.storage = (function() {
 
 hugs.enhanceListing = function(checkoutPage) {
   var $basketList = $('.basket-list');
+  var $basketPad = $('.basket-pad');
+  var $sideBar = $('.side-bar');
   var $checkoutForm;
 
   if (!checkoutPage) {
-    var $checkoutBtn = $('<form action="checkout.html"><p><button class="btn" type="submit">Checkout</button></p></form>');
+    var $checkoutBtn = $('<form action="checkout.html"><p><button class="btn checkout-side" type="submit">Checkout</button></p></form>');
   }
 
   var showingCheckoutButton = false;
@@ -70,6 +72,10 @@ hugs.enhanceListing = function(checkoutPage) {
     }).appendTo($basketList);
 
     return $row;
+  }
+
+  function setBasketPad() {
+    $basketPad.height( $sideBar.outerHeight() );
   }
 
   function showCheckoutButton() {
@@ -98,11 +104,17 @@ hugs.enhanceListing = function(checkoutPage) {
             $checkoutForm[0].requestAutocomplete();
             event.preventDefault();
           });
+          setBasketPad();
         });
       }
       else {
         $checkoutBtn.insertAfter($basketList);
+        setBasketPad();
       }
+
+      $sideBar.css('transition', 'transform 0.5s ease-out').css('WebkitTransition', '-webkit-transform 0.5s ease-out').addClass('not-empty').one('transitionend webkitTransitionEnd', function(event) {
+        if (this == event.target) $sideBar.css('transition', 'none');
+      });
     }
     showingCheckoutButton = true;
   }
@@ -111,6 +123,10 @@ hugs.enhanceListing = function(checkoutPage) {
     $basketList.prev('p').show();
     if (!checkoutPage) {
       $checkoutBtn.detach();
+
+      $sideBar.css('transition', 'transform 0.5s ease-in').css('WebkitTransition', '-webkit-transform 0.5s ease-out').removeClass('not-empty').one('transitionend webkitTransitionEnd', function(event) {
+        if (this == event.target) $sideBar.css('transition', 'none');
+      });
     }
     showingCheckoutButton = false;
   }
@@ -142,6 +158,7 @@ hugs.enhanceListing = function(checkoutPage) {
       transform: 'scale(1.5)'
     });
 
+    setBasketPad();
     $row[0].offsetWidth; // hack reflow
     
     $row.css({

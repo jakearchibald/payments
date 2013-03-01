@@ -4,6 +4,11 @@
       #{$prefix}transition: $type;
     }
   }
+  @mixin transform($type...) {
+    @each $prefix in -webkit-, '' {
+      #{$prefix}transform: $type;
+    }
+  }
 
 // gradients
   @mixin linear-gradient($to-direction, $color-stops...) {

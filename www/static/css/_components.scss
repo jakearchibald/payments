@@ -33,32 +33,35 @@ $deep-blue: #1C4751;
 
 
     & .title {
-      background: url('imgs/site-title-small.png') no-repeat;
-      background-size: 500px;
+      background: url('imgs/site-title-small.png') no-repeat 16px;
+      background-size: 254px;
       height: 36px;
       position: relative;
       top: 12px;
 
+      @media screen and (min-width: 415px) {
+        background-position: 30px;
+      }
+
       & a {
         display: block;
         height: 100%;
-        width: 203px;
+        width: 273px;
         text-indent: -5000px;
       }
     }
 
-    @media screen and (min-width: 415px) {
+    @media screen and (min-width: 526px) {
       height: 121px;
       @include linear-gradient(to bottom, #00242c, #2f5d67, #82b1bc);
 
       & .title {
-        background: url('imgs/site-title-large.png') no-repeat;
+        background: url('imgs/site-title-large.png') no-repeat 28px;
         background-size: 470px;
         height: 48px;
         top: 40px;
         max-width: 973px;
         margin: 0 auto;
-        left: 28px;
 
         & a {
           width: 460px;
@@ -397,18 +400,18 @@ $deep-blue: #1C4751;
 // sidebar
   .side-bar {
     background: #eee;
-    padding-top: 21px;
+    
     font-size: 13px;
     font-weight: normal;
 
     &::after {
       content: '';
       position: absolute;
-      top: 100%;
+      bottom: 100%;
       left: 0;
       right: 0;
-      height: 100px;
-      @include linear-gradient(to bottom, #eee, rgba(#eee, 0));
+      height: 6px;
+      @include linear-gradient(to bottom, rgba(#000, 0), rgba(#000, 0.3));
     }
 
     & h2 {
@@ -433,11 +436,31 @@ $deep-blue: #1C4751;
     & .who-section {
       padding: 0 15px;
 
-      &.me img {
-        border: 1px solid #fff;
-        border-width: 1px 0;
-        width: 215px;
-        height: 164px;
+      &.me {
+        display: none;
+        & img {
+          border: 1px solid #fff;
+          border-width: 1px 0;
+          width: 215px;
+          height: 164px;
+        }
+      } 
+    }
+
+    @media screen and (min-width: $sidebar-breakpoint) {
+      padding-top: 21px;
+
+      &::after {
+        bottom: auto;
+        top: 100%;
+        height: 100px;
+        @include linear-gradient(to bottom, #eee, rgba(#eee, 0));
+      }
+
+      & .who-section {
+        &.me {
+          display: block;
+        }
       }
     }
   }
@@ -457,6 +480,9 @@ $deep-blue: #1C4751;
         display: block;
         max-width: 100%;
       }
+    }
+    & .checkout-side {
+      width: 100%;
     }
   }
 
@@ -539,17 +565,15 @@ $deep-blue: #1C4751;
     margin: 7px 0;
 
     & > .photo {
+      margin: 0 10px 0 0;
       -webkit-order: -1;
     }
     & > .details {
       -webkit-flex: 1;
       position: relative;
-      margin: 0 0 0 15px;
     }
     & .buy {
-      position: absolute;
-      top: 0;
-      right: 0;
+      margin: 10px 0 10px -3px;
     }
     & .btn {
       padding: 1px 9px;
@@ -562,10 +586,25 @@ $deep-blue: #1C4751;
       margin: 4px 0 0;
     }
     & .product-photo {
-      width: 100px;
-      height: 100px;
+      width: 50px;
+      height: 50px;
       background: #ccc;
       margin-top: 3px;
+    }
+    @media screen and (min-width: 526px) {
+      & .buy {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 0;
+      }
+      & > .photo {
+        margin: 0 15px 0 0;
+      }
+      & .product-photo {
+        width: 100px;
+        height: 100px;
+      }
     }
   }
 
@@ -588,9 +627,12 @@ $deep-blue: #1C4751;
     margin-bottom: 15px;
 
     & .del {
-      right: auto;
-      left: 9px;
-      top: 8px;
+      
+      @media screen and (min-width: 415px) {
+        right: auto;
+        left: 9px;
+        top: 8px;
+      }
     }
   }
 
