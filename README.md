@@ -1,3 +1,8 @@
-# Basic express app for low-level frontend development
+# requestAutocomplete demo
 
-Featuring grunt & sass
+Requires node, npm, Sass & Grunt
+
+```
+npm install
+grunt dev
+```
