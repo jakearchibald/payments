@@ -33,22 +33,24 @@ $deep-blue: #1C4751;
 
 
     & .title {
-      background: url('imgs/site-title-small.png') no-repeat 16px;
-      background-size: 254px;
-      height: 36px;
       position: relative;
-      top: 12px;
+      top: 14px;
+      font-size: 35px;
+      line-height: 1;
+      word-spacing: -6px;
 
-      @media screen and (min-width: 415px) {
-        background-position: 30px;
-      }
+      font-family: Reenie Beanie;
 
       & a {
+        margin: 0 15px;
         display: block;
-        height: 100%;
-        width: 273px;
-        text-indent: -5000px;
+        color: #fff;
+
+        @media screen and (min-width: 415px) {
+          margin: 0 34px;
+        }
       }
+
     }
 
     @media screen and (min-width: 526px) {
@@ -56,16 +58,11 @@ $deep-blue: #1C4751;
       @include linear-gradient(to bottom, #00242c, #2f5d67, #82b1bc);
 
       & .title {
-        background: url('imgs/site-title-large.png') no-repeat 28px;
-        background-size: 470px;
-        height: 48px;
-        top: 40px;
+        top: 32px;
         max-width: 973px;
         margin: 0 auto;
-
-        & a {
-          width: 460px;
-        }
+        font-size: 59px;
+        text-shadow: 0 2px 1px rgba(0, 0, 0, 0.9);
       }
     }
   }
@@ -595,11 +592,18 @@ $deep-blue: #1C4751;
       padding: 1px 9px;
     }
     & .title {
-      margin: 0;
+      margin: 0 6px 0 0;
       font-size: 1.1rem;
+      display: inline;
+      vertical-align: middle;
     }
     & .description {
       margin: 4px 0 0;
+    }
+    & .price {
+      margin: 0;
+      display: inline;
+      vertical-align: middle;
     }
     & .product-photo {
       width: 50px;
@@ -622,6 +626,9 @@ $deep-blue: #1C4751;
       & .product-photo {
         width: 100px;
         height: 100px;
+      }
+      & .product-header {
+        padding-right: 122px;
       }
     }
   }
