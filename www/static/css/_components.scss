@@ -560,10 +560,6 @@ $deep-blue: #1C4751;
       &:first-child {
         border: none;
       }
-
-      &:nth-child(even) {
-        background: #F8F8F8;
-      }
     }
     .side-bar & > li:nth-child(odd) {
       background: #eee;
