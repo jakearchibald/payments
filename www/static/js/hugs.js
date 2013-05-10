@@ -93,11 +93,13 @@ hugs.enhanceListing = function(checkoutPage) {
             hugs.storage.setCheckoutDetails($checkoutForm.serializeObj());
             window.location.href = 'confirm.html';
           }).on('autocompleteerror', function(event) {
-            console.log(event);
-          }).on('invalid', function(event) {
-            hugs.storage.setCheckoutDetails($checkoutForm.serializeObj());
-            window.location.href = 'checkout.html';
-            event.preventDefault();
+            if (event.reason == 'cancel') {
+              // Do something cute, like pout.
+            }
+            else {  // 'invalid' or 'disabled'
+              hugs.storage.setCheckoutDetails($checkoutForm.serializeObj());
+              window.location.href = 'checkout.html';
+            }
           });
           $checkoutBtn.insertAfter($basketList);
           $checkoutBtn[0].addEventListener('click', function(event) {
