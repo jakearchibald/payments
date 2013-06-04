@@ -159,24 +159,19 @@
       switch (formEl.nodeName) {
         case 'INPUT':
           switch (formEl.type) {
-            case 'text':
-            case 'hidden':
-            case 'password':
-            case 'button':
-            case 'reset':
-            case 'submit':
-              ret[formEl.name] = formEl.value;
-              break;
             case 'checkbox':
             case 'radio':
               if (formEl.checked) {
                 ret[formEl.name] = formEl.value;
-              }                                               
+              }
               break;
             case 'file':
               break;
+            default:
+              ret[formEl.name] = formEl.value;
+              break;
           }
-          break;                   
+          break;
         case 'TEXTAREA':
           ret[formEl.name] = formEl.value;
           break;
@@ -198,6 +193,10 @@
       }
     }
     return ret;
+  };
+
+  utils.toArray = function(obj) {
+    return Array.prototype.slice.call(obj);
   };
 
   window.utils = utils;
