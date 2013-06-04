@@ -11,8 +11,21 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
     meta: {
       jsfiles: [
-        'www/static/js/jquery-1.9.1.js',
-        'www/static/js/hugs.js'
+        'www/static/js/q.js',
+        'www/static/js/utils.js',
+        'www/static/js/EventEmitter.js',
+        'www/static/js/hugs/index.js',
+        'www/static/js/hugs/controllers/index.js',
+        'www/static/js/hugs/controllers/ProductListing.js',
+        'www/static/js/hugs/controllers/Checkout.js',
+        'www/static/js/hugs/models/index.js',
+        'www/static/js/hugs/models/Storage.js',
+        'www/static/js/hugs/models/Basket.js',
+        'www/static/js/hugs/models/CheckoutDetails.js',
+        'www/static/js/hugs/views/index.js',
+        'www/static/js/hugs/views/Basket.js',
+        'www/static/js/hugs/views/Checkout.js',
+        'www/static/js/hugs/views/CheckoutButton.js'
       ]
     },
     concat: {

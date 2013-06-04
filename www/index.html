@@ -121,19 +121,23 @@
       </div>
       <div class="who-section">
         <h2>Basket</h2>
-        <p>
-          Nothing here yet. Quickly! Buy stuff!
-          Do you think we're made of time or something?
-        </p>
-        <ul class="row-list no-shift basket-list">
-        </ul>
+        <div class="basket">
+          <p class="empty-msg">
+            Nothing here yet. Quickly! Buy stuff!
+            Do you think we're made of time or something?
+          </p>
+          <ul class="row-list no-shift basket-list"></ul>
+          <form action="checkout.html" class="checkout-btn-form">
+            <p><button class="btn checkout-side" type="submit">Checkout</button></p>
+          </form>
+        </div>
       </div>
     </div>
     <div class="basket-pad"></div>
   </div>
-  <script src="static/js/jquery-1.9.1.js"></script><script src="static/js/hugs.js"></script>
+  <script src="static/js/all.js"></script>
   <script>
-    hugs.enhanceListing();
+    new hugs.controllers.ProductListing();
   </script>
 </body>
 </html>

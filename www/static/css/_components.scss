@@ -630,6 +630,7 @@ $deep-blue: #1C4751;
   .basket-list {
     & > li {
       position: relative;
+      overflow: hidden;
     }
 
     & .del {
@@ -652,6 +653,9 @@ $deep-blue: #1C4751;
         top: 8px;
       }
     }
+  }
+  .checkout-btn-form {
+    display: none;
   }
 
 // billing

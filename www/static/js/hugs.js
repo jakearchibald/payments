@@ -1,5 +1,48 @@
 var hugs = {};
 
+// controllers
+hugs.controllers.ProductPage = function() {
+  var basketModel = new hugs.models.Basket();
+  // TODO
+};
+
+
+// hugs.views.CheckoutBasket (inherits?)
+// - add item
+// - remove item
+
+// hugs.views.CheckoutButton (includes form & requestAutocomplete)
+// - show
+// - hide
+
+// models
+hugs.models = {};
+
+
+
+(function() {
+  function Basket() {
+    hugs.models.Storage.call(this, 'basket');
+  }
+
+  var BasketProto = Basket.prototype = Object.create(hugs.models.Storage.prototype);
+
+  BasketProto.set = function(product, count) {
+    if (count) {
+      this.obj_[product] = count;
+    }
+    else {
+      delete this.obj_[product];
+    }
+    this.save_();
+  };
+
+  hugs.models.Basket = Basket;
+})();
+
+
+
+
 hugs.storage = (function() {
   var basket = JSON.parse(localStorage.getItem('basket') || '{}');
   var checkoutDetails = JSON.parse(localStorage.getItem('checkoutDetails') || '{}');
@@ -42,6 +85,7 @@ hugs.storage = (function() {
     }
   };
 }());
+
 
 hugs.enhanceListing = function(checkoutPage) {
   var $basketList = $('.basket-list');
