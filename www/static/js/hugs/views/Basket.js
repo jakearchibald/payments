@@ -63,7 +63,8 @@
           opacity: '0'
         }, 0.2, 'easeOutQuad').then(function() {
           if (basket.listEl_.childNodes.length > 1) {
-            row.style.height = row.offsetHeight + 'px';
+            // -10 for padding
+            row.style.height = row.offsetHeight - 10 + 'px';
             return utils.transition(row, {
               height: '0',
               marginTop: '-10px'
