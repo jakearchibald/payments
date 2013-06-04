@@ -18,9 +18,10 @@
       <p>
         Confirm the items below and enter your payment/shipping details.
       </p>
-      <p>No items!</p>
-      <ul class="row-list no-shift basket-list">
-      </ul>
+      <div class="basket">
+        <p class="empty-msg">No items!</p>
+        <ul class="row-list no-shift basket-list"></ul>
+      </div>
     </div>
     <section class="grey-boxed full-width">
       <div class="width-padding">
@@ -33,17 +34,17 @@
           <div class="field-row row-desktop-only">
             <div class="field field-major">
               <label for="id_cc-number">Card Number</label>
-              <input id="id_cc-number" type="text" class="text" autocomplete="cc-number" name="cc-number" required>
+              <input id="id_cc-number" type="text" class="text" autocomplete="cc-number" name="cc-number" pattern="(\d\s?){13,16}" required>
             </div>
             <div class="field-row">
               <div class="field">
                 <label for="id_cc-exp-month">Card Expiry</label>
-                <input id="id_cc-exp-month" type="number" class="text text-small" autocomplete="cc-exp-month" name="cc-exp-month" placeholder="MM" required>
-                <input id="id_cc-exp-year" type="number" class="text text-small" autocomplete="cc-exp-year" name="cc-exp-year" placeholder="YY" required>
+                <input id="id_cc-exp-month" type="text" class="text text-small" autocomplete="cc-exp-month" name="cc-exp-month" placeholder="MM" pattern="\d{1,2}" required>
+                <input id="id_cc-exp-year" type="text" class="text text-small" autocomplete="cc-exp-year" name="cc-exp-year" placeholder="YYYY" pattern="\d{4}" required>
               </div>
               <div class="field">
                 <label for="id_cc-csc">CSC</label>
-                <input id="id_cc-csc" type="number" class="text text-small" autocomplete="cc-csc" name="cc-csc" required>
+                <input id="id_cc-csc" type="text" class="text text-small" autocomplete="cc-csc" name="cc-csc" required pattern="\d+">
               </div>
             </div>
           </div>
@@ -84,6 +85,7 @@
             <div class="field">
               <label for="id_delivery-name">Name</label>
               <input id="id_delivery-name" type="text" class="text" autocomplete="shipping name" name="delivery-name">
+              <input id="id_delivery-name" type="text" class="text" autocomplete="shipping email" name="delivery-email">
             </div>
             <div class="field">
               <label for="id_address-line1">Address</label>
@@ -119,10 +121,9 @@
       </div>
     </section>
   </div>
-  <script src="static/js/jquery-1.9.1.js"></script><script src="static/js/hugs.js"></script>
+  <script src="static/js/all.js"></script>
   <script>
-    hugs.enhanceCheckoutForm();
-    hugs.enhanceListing(true);
+    new hugs.controllers.Checkout();
   </script>
 </body>
 </html>

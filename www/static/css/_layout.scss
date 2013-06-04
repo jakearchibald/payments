@@ -73,10 +73,6 @@ body {
       right: 0;
       z-index: 1;
       @include transform(translate3d(0, 100%, 0));
-
-      &.not-empty {
-        @include transform(none);
-      }
     }
 
     @media screen and (min-width: $sidebar-breakpoint) {
