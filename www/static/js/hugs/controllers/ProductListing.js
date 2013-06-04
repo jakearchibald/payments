@@ -35,12 +35,12 @@
       }
     });
 
-    basketView.on('autocompleteSuccess', function(formData) {
+    checkoutButtonView.on('autocompleteSuccess', function(formData) {
       checkoutDetails.set(formData);
       window.location.href = 'confirm.html';
     });
 
-    basketView.on('autocompleteFail', function(formData) {
+    checkoutButtonView.on('autocompleteFail', function(formData) {
       checkoutDetails.set(formData);
       window.location.href = 'checkout.html';
     });
