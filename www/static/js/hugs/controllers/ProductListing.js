@@ -5,10 +5,12 @@
 
     var basketView = new hugs.views.Basket();
     var checkoutButtonView = new hugs.views.CheckoutButton();
+    var mobileFixedBasket = new hugs.views.MobileFixedBasket();
 
     for (var productName in basketModel.get()) {
       basketView.add(false, productName, productName, basketModel.getNum(productName));
       checkoutButtonView.show();
+      mobileFixedBasket.show(false);
     }
 
     // events for add to basket buttons
@@ -19,6 +21,7 @@
         basketModel.increment(productName);
         basketView.add(true, productName, productName, basketModel.getNum(productName));
         checkoutButtonView.show();
+        mobileFixedBasket.show(true);
         event.preventDefault();
       });
     });
@@ -28,6 +31,7 @@
       basketView.remove(true, productName, productName, basketModel.getNum(productName));
       if (basketModel.isEmpty()) {
         checkoutButtonView.hide();
+        mobileFixedBasket.hide(true);
       }
     });
 

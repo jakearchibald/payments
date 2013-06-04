@@ -2,7 +2,6 @@
   function Basket() {
     var basket = this;
     this.el_ = document.querySelector('.basket');
-    this.mobilePadding_ = document.querySelector('.basket-pad');
     this.emptyMsgEl_ = this.el_.querySelector('.empty-msg');
     this.listEl_ = this.el_.querySelector('.basket-list');
     
@@ -23,8 +22,6 @@
     if (animate) {
       utils.css(row, 'transform', 'scale(1.5)');
     }
-
-    this.addMobilePadding_();
 
     if (animate) {
       utils.transition(row, {
@@ -94,19 +91,6 @@
 
     return row;
   };
-
-  BasketProto.addMobilePadding_ = function() {
-    if (this.mobilePadding_) {
-      this.mobilePadding_.style.height = this.el_.offsetHeight + 'px';
-    }
-  };
-
-  // views
-  // hugs.views.Basket;
-  // - add item (animate)
-  // - remove item (animate)
-  // Fires events when remove is pressed, controller still has to remove items
-
 
   hugs.views.Basket = Basket;
 })();

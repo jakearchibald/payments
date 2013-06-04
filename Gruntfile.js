@@ -24,6 +24,7 @@ module.exports = function(grunt) {
         'www/static/js/hugs/views/Checkout.js',
         'www/static/js/hugs/views/CheckoutButton.js',
         'www/static/js/hugs/views/Confirm.js',
+        'www/static/js/hugs/views/MobileFixedBasket.js',
         'www/static/js/hugs/controllers/index.js',
         'www/static/js/hugs/controllers/ProductListing.js',
         'www/static/js/hugs/controllers/Checkout.js',
