@@ -14,7 +14,7 @@
     }
 
     // events for add to basket buttons
-    Array.prototype.forEach.call(document.querySelectorAll('.buy'), function(form) {
+    utils.toArray(document.querySelectorAll('.buy')).forEach(function(form) {
       form.addEventListener('submit', function(event) {
         // bit hacky, but nevermind
         var productName = form.parentNode.querySelector('.title').textContent;
