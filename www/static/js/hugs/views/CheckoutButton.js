@@ -10,10 +10,10 @@
     if (this.supportsRac_) {
       this.checkoutFormReady_ = utils.get('checkout.html').then(function(req) {
         checkoutButton.formEl_ = utils.elFromStr('<div>' + req.responseText + '</div>').querySelector('.checkout-form');
-        checkoutButton.formEl_.classList.add('hidden');
-        // show delivery part of form
+        checkoutButton.formEl_.style.display = 'none';
+
+        // request autocomplete will provide delivery details, even if they're the same as billing
         checkoutButton.formEl_.querySelector('.deliver-to-billing').checked = false;
-        checkoutButton.formEl_.querySelector('.delivery-details').style.display = 'block';
         document.body.appendChild(checkoutButton.formEl_);
 
         checkoutButton.checkoutBtnForm_.querySelector('button').addEventListener('click', function(event) {
