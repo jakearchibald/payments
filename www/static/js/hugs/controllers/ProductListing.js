@@ -1,10 +1,28 @@
 (function() {
   function ProductListing() {
+    var supportsRac = !!document.createElement('form').requestAutocomplete;
+    ga('send', 'event', 'rac', 'supported');
+    var useRac = false;
+    var useRacStoredValue;
+
+    if (supportsRac) {
+      useRacStoredValue = localStorage.getItem('useRac');
+      if (useRacStoredValue) {
+        useRac = !!Number(useRacStoredValue);
+      }
+      else {
+        useRac = Math.round(Math.random());
+        localStorage.setItem('useRac', useRac);
+      }
+    }
+
+    ga('send', 'event', 'rac', useRac ? 'used' : 'not-used');
+
     var basketModel = new hugs.models.Basket();
     var checkoutDetails = new hugs.models.CheckoutDetails();
 
     var basketView = new hugs.views.Basket();
-    var checkoutButtonView = new hugs.views.CheckoutButton();
+    var checkoutButtonView = new hugs.views.CheckoutButton(useRac);
     var mobileFixedBasket = new hugs.views.MobileFixedBasket();
 
     for (var productName in basketModel.get()) {

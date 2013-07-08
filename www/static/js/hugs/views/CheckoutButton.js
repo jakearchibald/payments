@@ -1,13 +1,12 @@
 (function() {
-  function CheckoutButton() {
+  function CheckoutButton(useRac) {
     var checkoutButton = this;
     this.checkoutBtnForm_ = document.querySelector('.checkout-btn-form');
-    this.supportsRac_ = !!this.checkoutBtnForm_.requestAutocomplete;
 
     this.checkoutFormReady_ = null;
     this.formEl_ = null;
 
-    if (this.supportsRac_) {
+    if (useRac) {
       this.checkoutFormReady_ = utils.get('checkout.html').then(function(req) {
         checkoutButton.formEl_ = utils.elFromStr('<div>' + req.responseText + '</div>').querySelector('.checkout-form');
         checkoutButton.formEl_.style.display = 'none';
@@ -17,15 +16,18 @@
         document.body.appendChild(checkoutButton.formEl_);
 
         checkoutButton.checkoutBtnForm_.querySelector('button').addEventListener('click', function(event) {
+          ga('send', 'event', 'rac', 'calling');
           checkoutButton.formEl_.requestAutocomplete();
           event.preventDefault();
         });
 
         checkoutButton.formEl_.addEventListener('autocomplete', function() {
+          ga('send', 'event', 'rac', 'success');
           checkoutButton.trigger('autocompleteSuccess', utils.form2Obj(checkoutButton.formEl_));
         });
 
         checkoutButton.formEl_.addEventListener('autocompleteerror', function(event) {
+          ga('send', 'event', 'rac', 'error-' + event.reason, 'error');
           if (event.reason != 'cancel') {
             checkoutButton.trigger('autocompleteFail', utils.form2Obj(checkoutButton.formEl_));
           }
