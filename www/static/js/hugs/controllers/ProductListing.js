@@ -1,7 +1,7 @@
 (function() {
   function ProductListing() {
     var supportsRac = !!document.createElement('form').requestAutocomplete;
-    ga('send', 'event', 'rac', 'supported');
+    ga('send', 'event', 'rac', supportsRac ? 'rac-supported' : 'rac-unsupported');
     var useRac = false;
     var useRacStoredValue;
 
@@ -16,7 +16,7 @@
       }
     }
 
-    ga('send', 'event', 'rac', useRac ? 'used' : 'not-used');
+    ga('send', 'event', 'rac', useRac ? 'rac-used' : 'rac-unused');
 
     var basketModel = new hugs.models.Basket();
     var checkoutDetails = new hugs.models.CheckoutDetails();

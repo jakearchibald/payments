@@ -16,18 +16,18 @@
         document.body.appendChild(checkoutButton.formEl_);
 
         checkoutButton.checkoutBtnForm_.querySelector('button').addEventListener('click', function(event) {
-          ga('send', 'event', 'rac', 'calling');
+          ga('send', 'event', 'rac', 'rac-called');
           checkoutButton.formEl_.requestAutocomplete();
           event.preventDefault();
         });
 
         checkoutButton.formEl_.addEventListener('autocomplete', function() {
-          ga('send', 'event', 'rac', 'success');
+          ga('send', 'event', 'rac', 'rac-success');
           checkoutButton.trigger('autocompleteSuccess', utils.form2Obj(checkoutButton.formEl_));
         });
 
         checkoutButton.formEl_.addEventListener('autocompleteerror', function(event) {
-          ga('send', 'event', 'rac', 'error-' + event.reason, 'error');
+          ga('send', 'event', 'rac', 'rac-error-' + event.reason, 'error');
           if (event.reason != 'cancel') {
             checkoutButton.trigger('autocompleteFail', utils.form2Obj(checkoutButton.formEl_));
           }

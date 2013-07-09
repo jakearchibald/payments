@@ -12,8 +12,7 @@
     else {
       this.obj_[product] = 1;
     }
-    debugger;
-    ga('send', 'event', 'basket', 'add', '', Math.random() * 50);
+    ga('send', 'event', 'rac', 'basket-add');
     this.save_();
   };
 
@@ -24,7 +23,6 @@
     else {
       this.obj_[product]--;
     }
-    ga('send', 'event', 'basket', 'remove', '', Math.random() * 50);
     this.save_();
   };
 
