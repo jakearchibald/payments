@@ -29,7 +29,10 @@
     for (var fieldName in formData) {
       summaryEl = document.querySelector('.from-form.' + fieldName);
 
-      if (summaryEl) {
+      if (fieldName == 'cc-number') {
+        summaryEl.textContent = 'xxxxxxxxxxxx' + formData[fieldName].slice(-4);
+      }
+      else if (summaryEl) {
         summaryEl.textContent = formData[fieldName];
       }
     }
