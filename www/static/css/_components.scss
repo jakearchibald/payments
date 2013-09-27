@@ -292,6 +292,11 @@ $deep-blue: #1C4751;
       }
     }
 
+    & .select {
+      box-sizing: border-box;
+      width: 100%;
+    }
+
     & .text-small {
       width: 5em;
     }
